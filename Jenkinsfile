@@ -10,7 +10,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                // Copy the index.html to the Nginx server location
+                // Copcy the index.html to the Nginx server location
                 sh '''
                    sudo cp index.html /usr/share/nginx/html/index.html
                    sudo systemctl restart nginx
