@@ -8,10 +8,13 @@ pipeline {
             }
         }
 
-        stage('Build') {
+        stage('Deploy') {
             steps {
-                sh 'echo "Building the project"'
-                // Add your build commands here
+                // Copy the index.html to the Nginx server location
+                sh '''
+                   sudo cp index.html /usr/share/nginx/html/index.html
+                   sudo systemctl restart nginx
+                '''
             }
         }
     }
